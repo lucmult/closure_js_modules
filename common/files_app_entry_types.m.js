@@ -33,8 +33,9 @@ export class EntryList {
    * @param {string} label: Label to be used when displaying to user, it should
    *    already translated.
    * @param {VolumeManagerCommon.RootType} rootType root type.
+   * @param {!VolumeInfo} volumeInfo
    */
-  constructor(label, rootType) {
+  constructor(label, rootType, volumeInfo) {
     /** @private {string} */
     this.label_ = label;
 
@@ -42,6 +43,9 @@ export class EntryList {
     this.rootType_ = rootType;
 
     this.children_ = [];
+
+    /** @private {!VolumeInfo} */
+    this.volumeInfo_ = volumeInfo;
   }
 
 
@@ -66,5 +70,12 @@ export class EntryList {
       return true;
     }
     return false;
+  }
+
+  /**
+   * @param {!FilesAppEntry} entry
+   */
+  setPrefix(entry) {
+    this.volumeInfo_.prefixEntry = /* @type {!FilesAppEntry} */ (entry);
   }
 }

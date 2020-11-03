@@ -42,7 +42,7 @@ $JAVA  -jar -Xms1024m -client -XX:+TieredCompilation $CLOSURE_JAR \
   --externs=externs/volume_info.js \
   --externs=externs/polymer-1.0.js \
   --externs=externs/volume_manager_types.js \
-  --externs=common/files_app_entry_types.js \
+  --externs=externs/files_app_entry_types.js \
   --js \
     common/volume_manager_types.m.js \
     common/files_app_entry_types.m.js
