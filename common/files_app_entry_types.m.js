@@ -1,4 +1,7 @@
 /**
+ * In our actual repository/build, this file is actually generated from the
+ * original file.
+ *
  * @fileoverview
  * https://source.chromium.org/chromium/chromium/src/+/master:ui/file_manager/file_manager/common/js/files_app_entry_types.js
  */

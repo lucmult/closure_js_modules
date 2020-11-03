@@ -1,4 +1,7 @@
 /**
+ * In our actual repository/build, this file is actually generated from the
+ * original file.
+ *
  * @fileoverview
  * https://source.chromium.org/chromium/chromium/src/+/master:ui/file_manager/base/js/volume_manager_types.js
  * @suppress {uselessCode} Temporary suppress because of the export for the

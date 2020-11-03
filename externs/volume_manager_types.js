@@ -1,4 +1,8 @@
 /**
+ * This is the actual original file (without generating the JS modules), at the
+ * moment we're including this files as extens because externs/volume_info.js
+ * refers to its types (enums actually).
+ *
  * @fileoverview
  * https://source.chromium.org/chromium/chromium/src/+/master:ui/file_manager/base/js/volume_manager_types.js
  */
