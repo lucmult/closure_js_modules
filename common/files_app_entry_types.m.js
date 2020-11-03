@@ -1,13 +1,15 @@
 /**
  * @fileoverview
  * https://source.chromium.org/chromium/chromium/src/+/master:ui/file_manager/file_manager/common/js/files_app_entry_types.js
- * @suppress {externsValidation}
  */
+
+import * as wrappedVolumeManagerCommon from './volume_manager_types.m.js';
+const {VolumeManagerCommon} = wrappedVolumeManagerCommon;
 
 /**
  * @interface
  */
-class FilesAppEntry {
+export class FilesAppEntry {
   constructor() {
   }
 }
@@ -15,25 +17,24 @@ class FilesAppEntry {
 /**
  * @interface
  */
-class FilesAppDirEntry extends FilesAppEntry {}
+export class FilesAppDirEntry extends FilesAppEntry {}
 
 
 /**
  * @implements FilesAppDirEntry
  */
-class FakeEntry {}
+export class FakeEntry {}
 
 /**
  * @implements FilesAppDirEntry
  */
-class EntryList {
+export class EntryList {
   /**
    * @param {string} label: Label to be used when displaying to user, it should
    *    already translated.
    * @param {VolumeManagerCommon.RootType} rootType root type.
-   * @param {!VolumeInfo} volumeInfo
    */
-  constructor(label, rootType, volumeInfo) {
+  constructor(label, rootType) {
     /** @private {string} */
     this.label_ = label;
 
@@ -41,9 +42,13 @@ class EntryList {
     this.rootType_ = rootType;
 
     this.children_ = [];
+  }
 
-    /** @private {!VolumeInfo} */
-    this.volumeInfo_ = volumeInfo;
+
+  findDownloads() {
+    return this.children_.findIndex(childEntry => {
+      return childEntry.volumeType == VolumeManagerCommon.RootType.DOWNLOADS;
+    });
   }
 
   /**
@@ -61,12 +66,5 @@ class EntryList {
       return true;
     }
     return false;
-  }
-
-  /**
-   * @param {!FilesAppEntry} entry
-   */
-  setPrefix(entry) {
-    this.volumeInfo_.prefixEntry = /* @type {!FilesAppEntry} */ (entry);
   }
 }
