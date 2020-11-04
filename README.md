@@ -31,8 +31,11 @@ specify such types in externs.  Some libraries/functions used by both
 
 ## Reproducing locally
 
-1.  Adjust the path for Java and Closure JAR in the `compile.sh`.
-2.  From the root of this repository run `./compile.sh`.
+1.  Checkout the [broken-type-check
+    branch](https://github.com/lucmult/closure_js_modules/tree/broken-type-check):
+    `$ git checkout broken-type-check`.
+2.  Adjust the path for Java and Closure JAR in the `compile.sh`.
+3.  From the root of this repository run `./compile.sh`.
 
 The expected error is:
 
