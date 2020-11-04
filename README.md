@@ -62,3 +62,6 @@ use it as a regular JS module.
 The one side effect is that the externs now are part of the runtime, whereas
 before it would only referred at compile time.  But this is a minor thing since
 they don't carry any implementation.
+
+See the changes for this workaround in this diff:
+[broken-type-check](https://github.com/lucmult/closure_js_modules/compare/broken-type-check...main)
