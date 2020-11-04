@@ -64,4 +64,4 @@ before it would only referred at compile time.  But this is a minor thing since
 they don't carry any implementation.
 
 See the changes for this workaround in this diff:
-[broken-type-check](https://github.com/lucmult/closure_js_modules/compare/broken-type-check...main)
+[broken-type-check](https://github.com/lucmult/closure_js_modules/commit/2c4d7a7ae1865fef598202bfb16f6ae50cb7c41c)
