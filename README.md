@@ -15,19 +15,18 @@ required: (FilesAppEntry|null)
 1 error(s), 0 warning(s), 96.6% typed
 ```
 
-
 ## Background Information
 
-We're gradually migrating our JS code to JS modules. To be able graudally
+We're gradually migrating our JS code to JS modules. To be able gradually
 migrate to modules we're generating the JS modules from the traditional scripts
 and keeping the traditional script running until all files have JS modules when
 we'll be able to switch to JS modules.
 
 We also use Closure externs to isolate our background page implementation from
 the foreground page.  Basically foreground page can't instantiate
-objects/implmentation from background page (and vice-versa).  However some types
+objects/implementation from background page (and vice-versa).  However some types
 are shared by both so to allow the type checking via Closure compiler we
-specificy such types in externs.  Some libraries/functions used by both
+specify such types in externs.  Some libraries/functions used by both
 (foreground and background) live in the "common" directory.
 
 ## Reproducing locally
@@ -49,3 +48,14 @@ required: (FilesAppEntry|null)
 1 error(s), 0 warning(s), 93.6% typed
 
 ```
+
+## How we worked around the problem
+
+As part of our build step we have the option to generate a JS module from a
+traditional script (or extern file), so we used this feature to generate a JS
+module for the affected externs and instead of using this module as extern we
+use it as a regular JS module.
+
+The one side effect is that the externs now are part of the runtime, whereas
+before it would only referred at compile time.  But this is a minor thing since
+they don't carry any implementation.

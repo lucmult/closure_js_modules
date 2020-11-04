@@ -37,13 +37,15 @@ $JAVA  -jar -Xms1024m -client -XX:+TieredCompilation $CLOSURE_JAR \
   --module_resolution=BROWSER_WITH_TRANSFORMED_PREFIXES \
   --browser_resolver_prefix_replacements="chrome://resources/=./" \
   --browser_resolver_prefix_replacements="//resources/=./" \
-  --js_module_root=./common \
+  --js_module_root=./ \
   --js_output_file gen/closure_compile_jsmodules.js \
-  --externs=externs/volume_info.js \
   --externs=externs/polymer-1.0.js \
-  --externs=externs/volume_manager_types.js \
-  --externs=externs/files_app_entry_types.js \
   --js \
+    externs/files_app_entry_interfaces.m.js \
+    externs/volume_info.m.js \
     common/volume_manager_types.m.js \
     common/files_app_entry_types.m.js
 
+# --externs=externs/volume_info.js \
+# --externs=externs/volume_manager_types.js \
+# --externs=externs/files_app_entry_types.js \
